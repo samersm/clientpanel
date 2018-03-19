@@ -1,0 +1,4 @@
+
+$ ng new clientpanel
+$ npm install bootstrap@4.0.0-alpha.6 tether jquery -s
+Commit..
