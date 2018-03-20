@@ -2,3 +2,16 @@
 $ ng new clientpanel
 $ npm install bootstrap@4.0.0-alpha.6 tether jquery -s
 Commit..
+
+$ ng g component views/dashboard
+$ ng g component views/clients
+$ ng g component views/clients/addClient
+$ ng g component views/clients/editClient
+$ ng g component views/clients/clientDetails
+$ ng g component views/register
+$ ng g component views/login
+$ ng g component views/navbar
+$ ng g component views/sidebar
+$ ng g component views/settings
+$ ng g component views/pageNotFound
+Commit..
