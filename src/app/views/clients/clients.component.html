@@ -1,3 +1,5 @@
-<p>
-  clients works!
-</p>
+<ul>
+  <li class="text" *ngFor="let client of clients | async">
+    {{client.firstName}}
+  </li>
+</ul>

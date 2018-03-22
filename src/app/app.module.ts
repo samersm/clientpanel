@@ -2,12 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+// AngularFire Imports Course
+// import { AngularFireModule } from 'angularfire2';
+// import { AngularFireDatabase } from 'angularfire2/database';
+// import { AngularFireAuth } from 'angularfire2/auth';
+
 // AngularFire Imports
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { AngularFireAuth } from 'angularfire2/auth';
-// import { AngularFirestore } from 'angularfire2/firestore';
-// import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // Component Imports
 import { AppComponent } from './app.component';
@@ -25,6 +28,8 @@ import { PageNotFoundComponent } from './views/page-not-found/page-not-found.com
 
 // Service Imports
 import { ClientService } from './services/client.service';
+import { environment } from './../environments/environment';
+
 
 const appRoutes: Routes = [
   {path:'', component:DashboardComponent},
@@ -32,14 +37,16 @@ const appRoutes: Routes = [
   {path:'login', component:LoginComponent}
 ];
 
-export const firebaseConfig = {
-  apiKey: "AIzaSyAOWGwLDtr5oF27yBAvO3XIOknj-oE78Bs",
-  authDomain: "clientpanel-a4bd9.firebaseapp.com",
-  databaseURL: "https://clientpanel-a4bd9.firebaseio.com",
-  projectId: "clientpanel-a4bd9",
-  storageBucket: "clientpanel-a4bd9.appspot.com",
-  messagingSenderId: "503834602272"
-}
+// Firebase Course Code
+// export const firebaseConfig = {
+//   apiKey: "AIzaSyAOWGwLDtr5oF27yBAvO3XIOknj-oE78Bs",
+//   authDomain: "clientpanel-a4bd9.firebaseapp.com",
+//   databaseURL: "https://clientpanel-a4bd9.firebaseio.com",
+//   storageBucket: "clientpanel-a4bd9.appspot.com",
+//   messagingSenderId: "503834602272",
+//   projectId: "clientpanel-a4bd9"
+// }
+
 
 @NgModule({
   declarations: [
@@ -59,11 +66,14 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    AngularFireModule.initializeApp(firebaseConfig)
+    // AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
-    AngularFireAuth,
-    AngularFireDatabase,
+    // AngularFireAuth,
+    // AngularFireDatabase,
     ClientService
   ],
   bootstrap: [AppComponent]
